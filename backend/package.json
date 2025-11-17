@@ -9,7 +9,7 @@
     "server": "nodemon server.js",
     "data:import": "node seeder",
     "data:destroy": "node seeder -d",
-    "build": "npm run build --prefix backend",
+    "build": "npm run build",
     "mcp": "node mcp-server.js"
   },
   "author": "Puppy",
