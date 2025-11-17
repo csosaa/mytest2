@@ -12,11 +12,13 @@
     "data:import": "node backend/seeder",
     "data:destroy": "node backend/seeder -d",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
-    "generate-toc": "markdown-toc -i readme.md"
+    "generate-toc": "markdown-toc -i readme.md",
+    "mcp": "node mcp-server.js"
   },
   "author": "Brad Traversy",
   "license": "MIT",
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.22.0",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "cookie-parser": "^1.4.6",

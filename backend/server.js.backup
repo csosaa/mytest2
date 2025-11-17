@@ -25,7 +25,6 @@ app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/orders', preOrderRoutes);
-app.use('/api/preorders', preOrderRoutes);
 app.use('/api/upload', uploadRoutes);
 
 app.get('/api/config/paypal', (req, res) =>

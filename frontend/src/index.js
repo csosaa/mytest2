@@ -23,8 +23,10 @@ import ShippingScreen from './screens/ShippingScreen';
 import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
+import PreOrderScreen from './screens/PreOrderScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import OrderListScreen from './screens/admin/OrderListScreen';
+import PreOrderListScreen from './screens/admin/PreOrderListScreen';
 import ProductListScreen from './screens/admin/ProductListScreen';
 import ProductEditScreen from './screens/admin/ProductEditScreen';
 import UserListScreen from './screens/admin/UserListScreen';
@@ -53,11 +55,14 @@ const router = createBrowserRouter(
         <Route path='/payment' element={<PaymentScreen />} />
         <Route path='/placeorder' element={<PlaceOrderScreen />} />
         <Route path='/order/:id' element={<OrderScreen />} />
+        <Route path='/preorder/:id' element={<PreOrderScreen />} />
+        
         <Route path='/profile' element={<ProfileScreen />} />
       </Route>
       {/* Admin users */}
       <Route path='' element={<AdminRoute />}>
         <Route path='/admin/orderlist' element={<OrderListScreen />} />
+        <Route path='/admin/preorderlist' element={<PreOrderListScreen />} />
         <Route path='/admin/productlist' element={<ProductListScreen />} />
         <Route
           path='/admin/productlist/:pageNumber'

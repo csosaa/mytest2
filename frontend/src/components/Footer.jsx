@@ -6,9 +6,9 @@ const Footer = () => {
   return (
     <footer>
       <Container>
-        <Row>
+        <Row className='bg-primary'>
           <Col className='text-center py-3'>
-            <p>OnRoad &copy; {currentYear}</p>
+            <p>OnRoad &copy; {currentYear} Powered by LensunSolar CR</p>
           </Col>
         </Row>
       </Container>

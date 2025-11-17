@@ -35,19 +35,24 @@ const Header = () => {
       <Navbar bg='primary' variant='dark' expand='lg' collapseOnSelect>
         <Container>
           <Navbar.Brand as={Link} to='/'>
-            <img src={logo} alt='OnRoad' />
+            <img src={logo} alt='OnRoad CR' />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#features">Features</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
-              <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <Nav.Link href="/">Home</Nav.Link>
+              <NavDropdown href="/" title="Products" id="collapsible-nav-dropdown">
+                <NavDropdown.Item href="/">Hood Solar Panel</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/">RV and Trailer</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/">Flexible Solar Panel</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/">Truck Cover Solar Panel</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/">Solar Blanket</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/">Portable Solar Panel</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.4">
                   Separated link
@@ -80,6 +85,9 @@ const Header = () => {
                     </NavDropdown.Item>
                     <NavDropdown.Item as={Link} to='/admin/orderlist'>
                       Orders
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to='/admin/preOrderlist'>
+                      PreOrders
                     </NavDropdown.Item>
                     <NavDropdown.Item as={Link} to='/admin/userlist'>
                       Users
