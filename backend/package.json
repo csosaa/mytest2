@@ -5,11 +5,10 @@
   "description": "Ecommerce application built with the MERN stack",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "npm install && node server.js",
     "server": "nodemon server.js",
     "data:import": "node seeder",
     "data:destroy": "node seeder -d",
-    "build": "npm run build",
     "mcp": "node mcp-server.js"
   },
   "author": "Puppy",
