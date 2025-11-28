@@ -1,4 +1,4 @@
-export const BASE_URL = (process.env.NODE_ENV === 'production') ? 'http://www.onroadcr.com/': '' ;
+export const BASE_URL = (process.env.NODE_ENV === 'production') ? 'https://onroad-api.vercel.app/': '' ;
 export const PRODUCTS_URL = '/api/products';
 export const USERS_URL = '/api/users';
 export const ORDERS_URL = '/api/orders';
