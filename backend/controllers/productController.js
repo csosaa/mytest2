@@ -8,6 +8,7 @@ const getProducts = asyncHandler(async (req, res) => {
   const pageSize = process.env.PAGINATION_LIMIT;
   const page = Number(req.query.pageNumber) || 1;
 
+  console.log(req.query.keyword);
   const keyword = req.query.keyword
     ? {
         name: {
@@ -33,17 +34,10 @@ const getProductsByCategory = asyncHandler(async (req, res) => {
   const pageSize = process.env.PAGINATION_LIMIT;
   const page = Number(req.query.pageNumber) || 1;
 
-  const keyword = req.query.keyword
-    ? {
-        name: {
-          $regex: req.query.keyword,
-          $options: 'i',
-        },
-      }
-    : {};
-
-  const count = await Product.countDocuments({ ...keyword });
-  const products = await Product.find({ category: keyword })
+ const category = req.params.category;
+  const count = await Product.countDocuments({ ...category });
+  console.log(count);
+  const products = await Product.find({ category: category })
     .limit(pageSize)
     .skip(pageSize * (page - 1));
 
@@ -58,17 +52,10 @@ const getProductsByBrand = asyncHandler(async (req, res) => {
   const pageSize = process.env.PAGINATION_LIMIT;
   const page = Number(req.query.pageNumber) || 1;
 
-  const keyword = req.query.keyword
-    ? {
-        name: {
-          $regex: req.query.keyword,
-          $options: 'i',
-        },
-      }
-    : {};
-
-  const count = await Product.countDocuments({ ...keyword });
-  const products = await Product.find({ brand: keyword })
+  const brand = req.params.brand;
+  const count = await Product.countDocuments({ ...brand });
+  console.log(count);
+  const products = await Product.find({ brand: brand })
     .limit(pageSize)
     .skip(pageSize * (page - 1));
 

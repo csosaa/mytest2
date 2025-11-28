@@ -1,12 +1,13 @@
-import { Navbar, Nav, Container, NavDropdown, Badge } from 'react-bootstrap';
+import { Navbar, Nav, Container, NavDropdown, Badge, Dropdown, Image } from 'react-bootstrap';
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { useLogoutMutation } from '../slices/usersApiSlice';
 import { logout } from '../slices/authSlice';
 import SearchBox from './SearchBox';
-import logo from '../assets/logo.png';
+import logo from '../assets/lensun-logo_300x300@2x.avif';
 import { resetCart } from '../slices/cartSlice';
+import ComboBoxWithIcon from './ComboBoxWithIcon';
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -34,29 +35,26 @@ const Header = () => {
     <header>
       <Navbar bg='primary' variant='dark' expand='lg' collapseOnSelect>
         <Container>
-          <Navbar.Brand as={Link} to='/'>
-            <img src={logo} alt='OnRoad CR' />
-          </Navbar.Brand>
+            <img class="img-10" src={logo} alt='OnRoad CR' />
+            <span className='footer-label-secundary'>
+              CR
+            </span>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <NavDropdown href="/" title="Products" id="collapsible-nav-dropdown">
-                <NavDropdown.Item href="/">Hood Solar Panel</NavDropdown.Item>
+              <Nav.Link href="/">Inicio</Nav.Link>
+              <NavDropdown href="/" title="Productos" id="collapsible-nav-dropdown">
+                <NavDropdown.Item href="/">Panel para Capó</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="/">RV and Trailer</NavDropdown.Item>
+                <NavDropdown.Item href="/">Panel para Remolque</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="/">Flexible Solar Panel</NavDropdown.Item>
+                <NavDropdown.Item href="/">Panel Flexible</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="/">Truck Cover Solar Panel</NavDropdown.Item>
+                <NavDropdown.Item href="/">Panel para Cajuela</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="/">Solar Blanket</NavDropdown.Item>
+                <NavDropdown.Item href="/">Manta Solar Plegable</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="/">Portable Solar Panel</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
+                <NavDropdown.Item href="/">Panel Portable</NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Nav className="justify-content-end">
@@ -64,39 +62,39 @@ const Header = () => {
                   <>
                     <NavDropdown title={userInfo.name} id='username'>
                       <NavDropdown.Item as={Link} to='/profile'>
-                        Profile
+                        Perfil
                       </NavDropdown.Item>
                       <NavDropdown.Item onClick={logoutHandler}>
-                        Logout
+                        Salir
                       </NavDropdown.Item>
                     </NavDropdown>
                   </>
                 ) : (
                   <Nav.Link as={Link} to='/login'>
-                    <FaUser /> Sign In
+                    <FaUser /> Ingreso
                   </Nav.Link>
                 )}
 
                 {/* Admin Links */}
                 {userInfo && userInfo.isAdmin && (
-                  <NavDropdown title='Admin' id='adminmenu'>
+                  <NavDropdown title='Administrador' id='adminmenu'>
                     <NavDropdown.Item as={Link} to='/admin/productlist'>
-                      Products
+                      Productos
                     </NavDropdown.Item>
                     <NavDropdown.Item as={Link} to='/admin/orderlist'>
-                      Orders
+                      Pedidos
                     </NavDropdown.Item>
                     <NavDropdown.Item as={Link} to='/admin/preOrderlist'>
-                      PreOrders
+                      Pre Ordenes
                     </NavDropdown.Item>
                     <NavDropdown.Item as={Link} to='/admin/userlist'>
-                      Users
+                      Usuarios
                     </NavDropdown.Item>
                   </NavDropdown>
                 )}
 
                 <Nav.Link as={Link} to='/cart'>
-                  <FaShoppingCart /> Cart
+                  <FaShoppingCart /> Carrito
                   {cartItems.length > 0 && (
                     <Badge pill bg='success' style={{ marginLeft: '5px' }}>
                       {cartItems.reduce((a, c) => a + c.qty, 0)}
@@ -107,11 +105,15 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <Navbar bg='primary' variant='dark' expand='lg' collapseOnSelect>
+      <Navbar bg='primary' variant='dark'>
         <Container>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='ms-auto'>
+            <ComboBoxWithIcon />
+          </Navbar.Collapse>
+          <Navbar.Toggle aria-controls='basic-navbar-nav' />
+          <Navbar.Collapse id='basic-navbar-nav'>
+            <Nav className='ms-auto w-100'>
               <SearchBox />
             </Nav>
           </Navbar.Collapse>
